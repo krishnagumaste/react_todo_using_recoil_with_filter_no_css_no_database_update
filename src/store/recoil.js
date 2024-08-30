@@ -8,15 +8,15 @@ export const formState = atom({
     ]
 });
 
-export const titleFilterState = atom({
-    key: "titleFilterState",
+export const filterState = atom({
+    key: "filterState",
     default: ""
 });
 
 export const filteredFormState = selector({
     key: "filteredFormState",
     get: ({get}) => {
-        const filter = get(titleFilterState);
+        const filter = get(filterState);
         const form = get(formState);
 
         if(!filter) { 
@@ -24,7 +24,7 @@ export const filteredFormState = selector({
         }
 
         return form.filter((todo) => 
-            todo.title.toLowerCase().includes(filter.toLowerCase())
+            todo.title.toLowerCase().includes(filter.toLowerCase()) || todo.description.toLowerCase().includes(filter.toLowerCase())
         );
     }
 });

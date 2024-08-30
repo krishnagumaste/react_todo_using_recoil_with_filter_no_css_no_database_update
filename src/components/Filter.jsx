@@ -1,8 +1,8 @@
 import { useRecoilState } from "recoil";
-import { titleFilterState } from "../store/recoil";
+import { filterState } from "../store/recoil";
 
 const Filter = () => {
-    const [filter, setFilter] = useRecoilState(titleFilterState);
+    const [filter, setFilter] = useRecoilState(filterState);
 
   return (
     <div>
